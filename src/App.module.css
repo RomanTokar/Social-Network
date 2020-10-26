@@ -1,0 +1,15 @@
+/*
+.app{
+    display: grid;
+    grid-template-areas: 'header header' 'navbar main';
+    grid-template-rows: 100px 1fr;
+    grid-template-columns: 2fr 8fr;
+    width: 90%;
+    margin: 50px 5% 50px 5%;
+}
+
+.main{
+    grid-area: main;
+    padding: 20px;
+    background-color: deepskyblue;
+}*/
