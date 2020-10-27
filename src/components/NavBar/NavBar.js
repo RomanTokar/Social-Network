@@ -6,32 +6,64 @@ import {blue} from "@material-ui/core/colors";
 import PersonIcon from '@material-ui/icons/Person';
 import PeopleIcon from '@material-ui/icons/People';
 import {useSelector} from "react-redux";
+import {createStyles} from '@material-ui/styles';
 
-const useStyles = makeStyles({
-    navLink: {
-        textDecoration: 'none',
-        padding: 5,
-        transition: '0.25s',
-        '&:hover': {
-            backgroundColor: blue[100]
-        }
-    },
-    text: {
-        color: blue[600],
-        margin: 0
-    },
-    icon: {
-        color: blue[600],
-        padding: '0 10px',
-        minWidth: 20
-    },
-    list: {
-        padding: '5px 0',
-        backgroundColor: blue[50],
-        borderRadius: 5,
-        margin: 5,
-    }
-})
+// const useStyles = makeStyles({
+//     navLink: {
+//         textDecoration: 'none',
+//         padding: 5,
+//         transition: '0.25s',
+//         '&:hover': {
+//             backgroundColor: blue[100]
+//         }
+//     },
+//     text: {
+//         color: blue[600],
+//         margin: 0
+//     },
+//     icon: {
+//         color: blue[600],
+//         padding: '0 10px',
+//         minWidth: 20
+//     },
+//     list: {
+//         padding: '5px 0',
+//         backgroundColor: blue[50],
+//         borderRadius: 5,
+//         margin: 5,
+//     }
+// })
+
+const useStyles = makeStyles((theme) =>
+  createStyles({
+      navLink: {
+          textDecoration: 'none',
+          padding: 5,
+          transition: '0.25s',
+          '&:hover': {
+              backgroundColor: blue[100]
+          }
+      },
+      text: {
+          color: blue[600],
+          margin: 0
+      },
+      icon: {
+          color: blue[600],
+          padding: '0 10px',
+          minWidth: 20
+      },
+      list: {
+          padding: '5px 0',
+          backgroundColor: blue[50],
+          borderRadius: 5,
+          margin: 5,
+          [theme.breakpoints.down('xs')]: {
+              display: 'flex'
+          }
+      }
+  }),
+);
 
 const NavBar = () => {
     const classes = useStyles();

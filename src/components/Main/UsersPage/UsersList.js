@@ -16,7 +16,8 @@ const UsersList = ({users, isFetching}) => {
       {isFetching
         ? (users.length
             ? users.map((user) => <UserItem key={user.id} isFetching={isFetching}>{user}</UserItem>)
-            : <Grid container justify={'center'}>
+            :
+            <Grid container justify={'center'}>
               <Grid item>Nothing wasn't found.</Grid>
             </Grid>
         )

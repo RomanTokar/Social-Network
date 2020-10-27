@@ -33,8 +33,8 @@ const SearchContainer = ({term, isFetching, isFriend}) => {
       {isFetching &&
       <Grid container justify={'center'} alignItems={'center'} spacing={1} style={{margin: 20}}>
         <Grid item>
-          <TextField variant={'outlined'} size={'small'} inputRef={searchInput} onChange={onChange}
-                     onKeyDown={onEnter} value={value}/>
+          <TextField variant={'outlined'} size={'small'} inputRef={searchInput} placeholder={'Search users..'}
+                     onChange={onChange} onKeyDown={onEnter} value={value}/>
         </Grid>
         <Grid item>
           <IconButton onClick={onClick}>

@@ -28,7 +28,7 @@ const Header = () => {
                     <Grid item>
                         <Logo/>
                     </Grid>
-                    <Grid item lg md sm/>
+                    <Grid item lg md sm xs/>
                     <Grid item>
                         <UserMenu profileData={profileData} authData={authData}/>
                     </Grid>

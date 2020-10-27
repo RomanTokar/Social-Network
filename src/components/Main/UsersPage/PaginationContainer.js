@@ -14,6 +14,7 @@ const useStyles = makeStyles({
   root: {
     fontWeight: 'bolder',
     backgroundColor: 'white',
+    marginTop: 5,
     color: blue[300],
     borderColor: blue[200],
     '&$selected': {

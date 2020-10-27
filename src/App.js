@@ -31,10 +31,10 @@ const App = () => {
             <Grid item container lg={12} md={12} sm={12}>
                 <Grid item lg={2} md={1}/>
                 <Grid item container lg={8} md={10} sm={12}>
-                    <Grid item lg={2} md={2} sm={3}>
+                    <Grid item lg={2} md={2} sm={3} xs={12}>
                         <NavBar/>
                     </Grid>
-                    <Grid item lg={10} md={10} sm={9}>
+                    <Grid item lg={10} md={10} sm={9} xs={12}>
                         <Main/>
                     </Grid>
                 </Grid>

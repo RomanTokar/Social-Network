@@ -19,7 +19,7 @@ export const
 
   changeIsFriendAC = isFriend => ({
     type: types.TOGGLE_IS_FRIEND,
-    payload: {isFriend},
+    payload: {isFriend}
   }),
 
   toggleIsFetchingAC = isFetching => ({
@@ -29,12 +29,7 @@ export const
 
 export const
   getUsersTC = (pageNumber, isFriend, term) => async (dispatch) => {
-    batch(() => {
-      dispatch(toggleIsFetchingAC(false));
-      dispatch(changePageAC(pageNumber));
-      dispatch(changeIsFriendAC(isFriend));
-      dispatch(setTermAC(term))
-    });
+    dispatch(toggleIsFetchingAC(false));
 
     const {items, totalCount} = await usersAPI.getUsers(pageNumber, isFriend, term);
 

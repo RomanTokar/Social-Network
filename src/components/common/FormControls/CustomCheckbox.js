@@ -6,7 +6,7 @@ const CheckboxContainer = ({input, meta, ...props}) => {
 
     return <FormControlLabel
         control={<Checkbox color={"primary"}/>}
-        {...props} {...input} checked={input.value}
+        {...props} {...input} checked={!!input.value}
     />
 }
 

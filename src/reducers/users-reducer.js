@@ -2,7 +2,7 @@ import types from '../actionTypes/users-actionTypes';
 
 let initialState = {
   users: [],
-  currentPage: 0,
+  currentPage: 1,
   totalPageCount: 0,
   term: '',
   isFriend: false,
