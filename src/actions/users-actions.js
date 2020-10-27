@@ -5,6 +5,8 @@ import types from '../actionTypes/users-actionTypes';
 export const
   setUsersAC = users => ({type: types.SET_USERS, payload: {users}}),
 
+  setTermAC = term => ({type: types.SET_TERM, payload: {term}}),
+
   setTotalUsersCountAC = totalUsersCount => ({
     type: types.SET_TOTAL_USERS_COUNT,
     payload: {totalPageCount: Math.ceil(totalUsersCount / 45)}
@@ -26,14 +28,15 @@ export const
   });
 
 export const
-  getUsersTC = (pageNumber, isFriend) => async (dispatch) => {
+  getUsersTC = (pageNumber, isFriend, term) => async (dispatch) => {
     batch(() => {
       dispatch(toggleIsFetchingAC(false));
       dispatch(changePageAC(pageNumber));
       dispatch(changeIsFriendAC(isFriend));
+      dispatch(setTermAC(term))
     });
 
-    const {items, totalCount} = await usersAPI.getUsers(pageNumber, isFriend);
+    const {items, totalCount} = await usersAPI.getUsers(pageNumber, isFriend, term);
 
     batch(() => {
       dispatch(setUsersAC(items));

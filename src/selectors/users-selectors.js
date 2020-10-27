@@ -3,4 +3,5 @@ export const
   getCurrentPage = state => state.usersPage.currentPage,
   getTotalPageCount = state => state.usersPage.totalPageCount,
   getIsFetching = state => state.usersPage.isFetching,
-  getIsFriend = state => state.usersPage.isFriend;
+  getIsFriend = state => state.usersPage.isFriend,
+  getTerm = state => state.usersPage.term;

@@ -38,7 +38,7 @@ const useStyles = makeStyles({
   },
 });
 
-const PaginationContainer = ({currentPage, totalPageCount, isFriend}) => {
+const PaginationContainer = ({currentPage, totalPageCount, isFriend, term}) => {
   const
     step = 5,
     history = useHistory(),
@@ -80,7 +80,7 @@ const PaginationContainer = ({currentPage, totalPageCount, isFriend}) => {
     } else if (page > totalPageCount) {
       page = totalPageCount;
     }
-    history.push(`/${isFriend ? 'friends' : 'users'}/${[page]}`);
+    history.push(`/${isFriend ? 'friends' : 'users'}/${page}${term ? `?term=${term}` : ''}`);
   };
 
   return (

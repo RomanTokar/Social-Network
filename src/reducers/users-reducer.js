@@ -4,6 +4,7 @@ let initialState = {
   users: [],
   currentPage: 0,
   totalPageCount: 0,
+  term: '',
   isFriend: false,
   isFetching: false,
 };
@@ -15,6 +16,7 @@ const usersReducer = (state = initialState, action) => {
     case types.CHANGE_PAGE:
     case types.TOGGLE_IS_FETCHING:
     case types.TOGGLE_IS_FRIEND:
+    case types.SET_TERM:
       return {
         ...state,
         ...action.payload
