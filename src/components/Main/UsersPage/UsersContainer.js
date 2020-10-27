@@ -11,7 +11,7 @@ import {
   getUsers
 } from '../../../selectors/users-selectors';
 import PaginationContainer from './PaginationContainer';
-import {changePageAC, getUsersTC, setTermAC} from '../../../actions/users-actions';
+import {getUsersTC} from '../../../actions/users-actions';
 import {useLocation, useParams} from 'react-router-dom';
 import SearchContainer from './SearchContainer';
 
@@ -31,16 +31,8 @@ const UsersContainer = () => {
   const localIsFriend = pathname.match(/(?<=^\/).+(?=\/)/)[0] !== 'users';
 
   useEffect(() => {
-    dispatch(getUsersTC(currentPage, localIsFriend, term));
-  }, [dispatch, currentPage, localIsFriend, term]);
-
-  useEffect(() => {
-    dispatch(setTermAC(localTerm || ''));
-  }, [dispatch, localTerm]);
-
-  useEffect(() => {
-    dispatch(changePageAC(+page))
-  }, [dispatch, page])
+    dispatch(getUsersTC(+page, localIsFriend, isFriend, localTerm));
+  }, [dispatch, page, localIsFriend, isFriend, localTerm]);
 
   return (
     <>

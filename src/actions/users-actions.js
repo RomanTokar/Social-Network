@@ -28,13 +28,17 @@ export const
   });
 
 export const
-  getUsersTC = (pageNumber, isFriend, term) => async (dispatch) => {
+  getUsersTC = (pageNumber, localIsFriend, isFriend, term) => async (dispatch) => {
+    const localTerm = localIsFriend === isFriend ? term || '' : '';
+
     batch(() => {
       dispatch(toggleIsFetchingAC(false));
-      dispatch(changeIsFriendAC(isFriend));
+      dispatch(changeIsFriendAC(localIsFriend));
+      dispatch(changePageAC(pageNumber))
+      dispatch(setTermAC(localTerm))
     });
 
-    const {items, totalCount} = await usersAPI.getUsers(pageNumber, isFriend, term);
+    const {items, totalCount} = await usersAPI.getUsers(pageNumber, localIsFriend, localTerm);
 
     batch(() => {
       dispatch(setUsersAC(items));
