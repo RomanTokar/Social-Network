@@ -29,7 +29,10 @@ export const
 
 export const
   getUsersTC = (pageNumber, isFriend, term) => async (dispatch) => {
-    dispatch(toggleIsFetchingAC(false));
+    batch(() => {
+      dispatch(toggleIsFetchingAC(false));
+      dispatch(changeIsFriendAC(isFriend));
+    });
 
     const {items, totalCount} = await usersAPI.getUsers(pageNumber, isFriend, term);
 
