@@ -9,6 +9,7 @@ const SearchContainer = ({term, isFetching, isFriend}) => {
   const searchInput = useRef();
   const history = useHistory()
   const [value, setValue] = useState(term);
+  const [isFocus, setIsFocus] = useState(false);
 
   useEffect(() => {
     setValue(term);
@@ -33,8 +34,10 @@ const SearchContainer = ({term, isFetching, isFriend}) => {
       {isFetching &&
       <Grid container justify={'center'} alignItems={'center'} spacing={1} style={{margin: 20}}>
         <Grid item>
-          <TextField variant={'outlined'} size={'small'} inputRef={searchInput} placeholder={'Search users..'}
-                     onChange={onChange} onKeyDown={onEnter} value={value}/>
+          <TextField variant={'outlined'} size={'small'} value={value} autoFocus={isFocus}
+                     inputRef={searchInput} placeholder={'Search users..'}
+                     onChange={onChange} onKeyDown={onEnter}
+                     onFocus={() => setIsFocus(true)} onBlur={() => setIsFocus(false)}/>
         </Grid>
         <Grid item>
           <IconButton onClick={onClick}>
